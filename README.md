@@ -1,0 +1,1 @@
+# func-prog-lab4-money-bot
