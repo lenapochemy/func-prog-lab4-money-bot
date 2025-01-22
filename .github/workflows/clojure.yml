@@ -13,13 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
-    - name: Use oxr463/setup-leiningen
-      uses: oxr463/setup-leiningen@0.0.1
-      with:
-        exec: |
-          lein uberjar && \
-          cp "$(find . -name '*.jar')" .   
       
     - name: Install Clojure CLI
       uses: DeLaGuardo/setup-clojure@12.5
@@ -27,6 +20,12 @@ jobs:
         cli: latest
         clj-kondo: latest
         cljfmt: latest
+
+    - name: Install Leiningen
+      run: |
+        curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+        chmod +x lein
+        sudo mv lein /usr/local/bin/     
 
     - name: Install dependencies
       run: lein deps
