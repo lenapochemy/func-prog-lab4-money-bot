@@ -25,10 +25,10 @@
 (defn split-input [input]
   (rest (str/split input #"\s+")))
 
-(defn add-user [username first_name chat_id]
+(defn add-user [username first_name]
   (if (empty?  (find-user-in-db username))
     (do
-      (add-user-to-db username first_name chat_id)
+      (add-user-to-db username first_name)
       (apply str "Привет, " first_name ", теперь ты пользователь бота, держи инструкцию."))
     (apply str "Привет, " first_name ", мы уже знакомы, напоминаю как пользоваться ботом.")))
 

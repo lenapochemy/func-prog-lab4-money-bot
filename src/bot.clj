@@ -14,7 +14,7 @@
   (h/command-fn "start"
                 (fn [{{id :id :as chat} :chat}]
                   (println "Bot joined new chat: " chat)
-                  (t/send-text token id (add-user (:username chat) (:first_name chat) (:id chat)))
+                  (t/send-text token id (add-user (:username chat) (:first_name chat)))
                   (t/send-text token id (help))))
 
   (h/command-fn "help"

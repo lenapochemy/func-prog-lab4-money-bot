@@ -11,10 +11,9 @@
 (defn find-user-in-db [username]
   (first (jdbc/find-by-keys db :users {:username username})))
 
-(defn add-user-to-db [username first_name chat_id]
+(defn add-user-to-db [username first_name]
   (jdbc/insert! db :users {:username username
                            :first_name first_name
-                           :chat chat_id
                            :money 0}))
 
 (defn find-all-categories-in-db [user-id]
